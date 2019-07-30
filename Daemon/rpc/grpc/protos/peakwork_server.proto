@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package GRPCServer;
+
+service Peakwork {
+    rpc GetCompanyInfo(GetCompanyRequest) returns (GetCompanyResponse) {}
+}
+
+message TimeFrame {
+    string timeFrame = 1;
+    string date = 2;
+}
+
+message Json {
+    string data = 1;
+}
+
+message GetCompanyRequest {
+    repeated string company = 1;
+    TimeFrame time_limit = 2; 
+}
+
+message GetCompanyResponse {
+    Json json_data = 1;
+}
+
